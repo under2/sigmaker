@@ -1,3 +1,2 @@
 require "./main"
-
 run App

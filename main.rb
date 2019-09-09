@@ -8,6 +8,7 @@ class App < Sinatra::Base
   end
 
   post '/show' do
+
     @show_sig = true
     @name = params[:user_name]
     @title = params[:user_title]

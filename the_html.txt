@@ -47,7 +47,7 @@
                               </table>
                             </td>
                             <td style="padding:0px;color:rgb(79,79,79)">
-                              <a class="sc-iRbamj blSEcj" href="tel:###phone###" color="#4F4F4F" style="text-decoration:none;color:rgb(79,79,79);font-size:12px">
+                              <a class="sc-iRbamj blSEcj" href="tel:###phone###" color="#4F4F4F" style="text-decoration:none;color:rgb(79,79,79) !important;font-size:12px">
                                  <span>###phone###</span>
                               </a>
                             </td>
@@ -67,7 +67,7 @@
                               </table>
                             </td>
                             <td style="padding:0px">
-                              <a class="sc-iRbamj blSEcj" href="mailto:###email###" color="#4F4F4F" style="text-decoration:none;color:rgb(79,79,79);font-size:12px">
+                              <a class="sc-iRbamj blSEcj" href="mailto:###email###" color="#4F4F4F" style="text-decoration:none;color:rgb(79,79,79) !important;font-size:12px">
                                 <span>###email###</span>
                               </a>
                             </td>
@@ -87,7 +87,7 @@
                               </table>
                             </td>
                             <td style="padding:0px">
-                              <a class="sc-iRbamj blSEcj" href="//under2.agency" color="#4F4F4F" style="text-decoration:none;color:rgb(79,79,79);font-size:12px">
+                              <a class="sc-iRbamj blSEcj" href="//under2.agency" color="#4F4F4F" style="text-decoration:none;color:rgb(79,79,79) !important;font-size:12px">
                                 <span>under2.agency</span>
                               </a>
                             </td>

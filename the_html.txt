@@ -1,4 +1,4 @@
-<img alt="under2 logo" src="https://under2.global/images/email-sig.png">
+<img alt="under2 logo" src="###image###">
 <div dir="auto">
   <font style="font-size: 18px; font-weight: bold;">###name###</font>
 </div>
@@ -12,4 +12,4 @@
   <font style="font-size: 12px;">###phone###<br></font>
 </div>
 <div dir="auto"><a href="mailto:###email###"><font style="font-size: 12px;color:#3388cc;text-decoration:none;">###email###</font></a></div>
-<div dir="auto"><a href="https://under2.agency"><font style="font-size: 12px;color:#3388cc;text-decoration:none;">under2.agency</font></a></div>
+<div dir="auto"><a href="https://under2.global"><font style="font-size: 12px;color:#3388cc;text-decoration:none;">under2.global</font></a></div>

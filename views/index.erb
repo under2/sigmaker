@@ -26,23 +26,25 @@
         <input type="text" d="phone" name="user_phone" class="form-control" value="<%= @phone %>" placeholder="Enter Phone Number">
       </div>
       
-      <% if @show_sig == true %>
-     
-      <button type="submit" class="btn btn-primary">Update sig</button>
-      <span ><a class="align-bottom" href="/">Start again</a></span>
-      <% else %>
-      <button type="submit" class="btn btn-primary">Create Sig</button>
-      <% end %>
+      <div style="margin-bottom:40px">
+        <% if @show_sig == true %>
+        <button type="submit" class="btn btn-primary">Update sig</button>
+        <span style="margin-left:5px" ><a class="align-bottom" href="/">Start again</a></span>
+        <% else %>
+        <button type="submit" class="btn btn-primary">Create Sig</button>
+        <% end %>
+      </div>
     </form>
 
     <% if @show_sig == true %>
-    <div id="display-html" style="margin-top:20px"><%=@html %></div>
+    <div id="display-html" style=""><%=@html %></div>
     <input type="text" id="text-box" style="opacity: 0;" value='<%=@escaped_html64 %>'>
 
-    <p style="margin-top:40px">Use Rich Text for Gmail and HTML for other email clients</p>
+    <p style="margin-top:20px">Use <span style="font-weight:900">Rich Text</span> for Gmail and <span style="font-weight:900">HTML</span> for other email clients</p>
+    <p style="">The Rich Text button <span style="color:red; font-weight:900;">only works</span> in Chrome</p>
     <div style="">
-        <button id="copy" class="btn btn-primary" onclick="copyHTMLtoClip(document.getElementById('text-box'))">Copy HTML to clipboard</button>
         <button id="copy" class="btn btn-primary" onclick="copyRTFtoClip(document.getElementById('display-html').innerHTML)">Copy Rich Text to clipboard</button>
+        <button id="copy" class="btn btn-primary" onclick="copyHTMLtoClip(document.getElementById('text-box'))">Copy HTML to clipboard</button>
     </div>
 
 
@@ -52,17 +54,22 @@
 
 
     function copyHTMLtoClip(what) {
-        if (!navigator.clipboard) {
-         console.log("This browser doesn't support copy to clipboard");
-          return;
-        }
-        navigator.clipboard.writeText(what).then(function() {
-          console.log('Async: Copying to clipboard was successful!');
-          console.log('what',what);
+      console.log('what',what);
+        // if (!navigatoZr.clipboard) {
+        //  console.log("This browser doesn't support copy to clipboard");
+        //   return;
+        // }
+        // navigator.clipboard.writeText(what).then(function() {
+        //   console.log('Async: Copying to clipboard was successful!');
+        //   console.log('what',what);
 
-        }, function(err) {
-          console.error('Async: Could not copy text: ', err);
-        });
+        // }, function(err) {
+        //   console.error('Async: Could not copy text: ', err);
+        // });
+
+      what.focus();
+      what.select();
+      document.execCommand("copy");
       }
 
     function copyRTFtoClip(what) {

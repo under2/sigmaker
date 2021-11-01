@@ -10,10 +10,10 @@ class App < Sinatra::Base
   post '/show' do
 
     @show_sig = true
-    @name = params[:user_name]
-    @title = params[:user_title]
-    @email = params[:user_email]
-    @phone = params[:user_phone]
+    @name = params[:user_name] || "Default Name"
+    @title = params[:user_title] || "Default Title"
+    @email = params[:user_email] || "default@email.com"
+    @phone = params[:user_phone] || "389472389472389472983"
 
     @logo_url='https://under2.global/images/email-sig.png'
     @logo_base64=File.read('logo_base64.txt')

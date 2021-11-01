@@ -6,7 +6,6 @@
     <title>Under2 Sig maker</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
-
   <body class='container'>
     <h1>Lets make you a email sig</h1>
     <form action="/show" method="post">
@@ -26,6 +25,7 @@
         <label for="phone">Phone:</label>
         <input type="text" d="phone" name="user_phone" class="form-control" value="<%= @phone %>" placeholder="Enter Phone Number">
       </div>
+      
       <% if @show_sig == true %>
      
       <button type="submit" class="btn btn-primary">Update sig</button>
@@ -36,18 +36,46 @@
     </form>
 
     <% if @show_sig == true %>
-    <div class="mt-4"><%=@html %></div>
-    <div class="mt-4"><button id="copy" class="btn btn-primary" onclick='selectText()'>Copy HTML to clipboard</button></div>
-   <input type="text" id="text-box" style="opacity: 0;" value='<%=@escaped_html64 %>'>
+    <div id="display-html" style="margin-top:20px"><%=@html %></div>
+    <input type="text" id="text-box" style="opacity: 0;" value='<%=@escaped_html64 %>'>
+
+    <p style="margin-top:40px">Use Rich Text for Gmail and HTML for other email clients</p>
+    <div style="">
+        <button id="copy" class="btn btn-primary" onclick="copyHTMLtoClip(document.getElementById('text-box'))">Copy HTML to clipboard</button>
+        <button id="copy" class="btn btn-primary" onclick="copyRTFtoClip(document.getElementById('display-html').innerHTML)">Copy Rich Text to clipboard</button>
+    </div>
+
+
     <% end  %>
 
     <script type="text/javascript">
-function selectText() {
-  const input = document.getElementById('text-box');
-  input.focus();
-  input.select();
-  document.execCommand('copy');
-}
+
+
+    function copyHTMLtoClip(what) {
+        if (!navigator.clipboard) {
+         console.log("This browser doesn't support copy to clipboard");
+          return;
+        }
+        navigator.clipboard.writeText(what).then(function() {
+          console.log('Async: Copying to clipboard was successful!');
+          console.log('what',what);
+
+        }, function(err) {
+          console.error('Async: Could not copy text: ', err);
+        });
+      }
+
+    function copyRTFtoClip(what) {
+      // refactor this to use the navigator.clipboard methods instead
+      function listener(e) {
+        e.clipboardData.setData("text/html", what);
+        e.clipboardData.setData("text/plain", what);
+        e.preventDefault();
+      }
+      document.addEventListener("copy", listener);
+      document.execCommand("copy");
+      document.removeEventListener("copy", listener); 
+    }
     </script>
   </body>
 </html>
